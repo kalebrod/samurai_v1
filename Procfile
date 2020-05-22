@@ -1,1 +1,1 @@
-web gunicorn samurai_app:app
+web gunicorn wsgi:app

@@ -1,19 +1,13 @@
-from decouple import config
+import os
 
-class Config:
-    pass
+basedir = os.path.abspath(os.path.dirname(__file__))
 
-class DevelopmentConfig(Config):
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/users'
+# Clase que faz alguns setups do flask
+
+class Config():
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'wbuzttl^a^p6z#2+41ffmvouaqpd8a&dm8(y%#@cgd4a3rn=!8'
+     
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///{}'.format(os.path.join(basedir,'app.db'))
+    
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-class ProductionConfig(Config):
-    DEBUG = False
-    SQLALCHEMY_DATABASE_URI = config('DATABASE_URL', default='localhost')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-config = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig
-}
