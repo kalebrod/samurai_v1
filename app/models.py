@@ -8,7 +8,7 @@ from app import db
 
 # class User(UserMixin,db.Model):
 class User(db.Model):
-    id = db.Column(db.String(10),primary_key=True)
+    id = db.Column(db.String(15),primary_key=True)
     email = db.Column(db.String(50), unique=True, nullable=False)
     senha = db.Column(db.String(100), nullable=False)
     nome = db.Column(db.String(50), nullable=False)
