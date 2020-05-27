@@ -127,9 +127,9 @@ body:before {
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    height: 800px;
-    width: 500px;
-    right: 100px;
-    bottom: -140px;
+    height: 200px;
+    width: 300px;
+    right: 600px;
+    bottom: 0;
     z-index: 1;
 }
