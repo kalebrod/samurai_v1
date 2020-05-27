@@ -49,5 +49,5 @@ class Login(Resource):
 
 
 # login_manager.login_view = Login
-api.add_resource(Login,'/login',endpoint='login')
-api.add_resource(Register,'/register',endpoint='register')
+api.add_resource(Login,'/api/login',endpoint='login')
+api.add_resource(Register,'/api/register',endpoint='register')

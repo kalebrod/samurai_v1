@@ -1,0 +1,135 @@
+@font-face{
+    font-family: 'pacifico';
+    src: url('../fonts/pacifico.ttf');
+}
+:root{
+    --primary-color:#DD3128;
+    --secondary-color:#414757;
+    --tertiary-color:#4ecdc4;
+    --fourth-color:#ff6b6b;
+}
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "header" "body";
+    background-image: url('../images/background_dot.png');
+    background-repeat: 'repeat';
+    overflow: hidden;
+    
+}
+/* A and P font family */
+h2,a,p{
+    font-family: 'Nunito Sans', sans-serif;
+    text-decoration: none;
+}
+
+/* Css styles */
+#title{
+    font-family: 'pacifico';
+    font-size: 2.5em;
+    color:var(--primary-color);
+    margin-right: 30px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px 20px 0 50px;
+    grid-area: header;
+    /* z-index: 1; */
+    /* border-bottom: 1px solid var(--secondary-color); */
+}
+nav div{
+    width: 350px;
+    display:  flex;
+    justify-content: space-evenly;
+    align-self: flex-end;
+    margin-bottom: 8px;
+}
+nav a{
+    font-size: larger;
+    color:var(--secondary-color);
+    padding-bottom: 8px;
+    border-bottom: 1px solid white;
+}
+nav a:hover{
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+}
+.body{
+    grid-area: body;
+    padding: 20px 50px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.body div{
+    margin-top: 30px;
+}
+.body div h2{
+    font-size: 3em;
+    margin-bottom: 10px;
+    width: 500px;
+}
+.body div p{
+    font-size: 20px;
+    padding-left: 70px;
+    width: 500px;
+}
+
+/* Pseudo elements */
+body:after {
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    left: -244px;
+    bottom: -121px;
+    width: 600px;
+    height: 450px;
+    background-color: var(--tertiary-color);
+    transform: rotate(37deg);
+    box-shadow: 5px -6px 6px 0px rgba(0,0,0,0.13);
+}
+body:before {
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    right: -418px;
+    bottom: -121px;
+    width: 600px;
+    height: 137vh;
+    background-color:var(--fourth-color);
+    transform: skew(156deg,0);
+    z-index: 1;
+    box-shadow: -9px 8px 7px 0 rgba(0,0,0,0.13);
+}
+.body:after{
+    content:'';
+    background-image: url('../images/iphone_mockups.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 800px;
+    width: 500px;
+    right: 100px;
+    bottom: -140px;
+}
+.body:before{
+    content:'';
+    background-image: url('../images/storelogs.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 800px;
+    width: 500px;
+    right: 100px;
+    bottom: -140px;
+    z-index: 1;
+}
