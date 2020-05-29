@@ -12,19 +12,28 @@ def check_user(user):
     query = User.query.get(user['id'])
 
     if query != None and check_password_hash(query.senha,user['senha']):
-        return {'status':True,'message':'User login succesfully'},query.id
+
+        user = toJSON(query)
+        del user['senha']
+
+        return user
 
     else:
-        return {'status':False,'message':'User login falied'},None
+        False
 
 def register_user(request):
-    new_user = User(
-        id = request['id'],
-        email = request['email'],
-        unhashed = request['senha'],
-        nome = request['nome']
-    )
-    db.session.add(new_user)
-    db.session.commit()
+    try:
+        new_user = User(
+            id = request['id'],
+            email = request['email'],
+            unhashed = request['senha'],
+            nome = request['nome']
+        )
+        db.session.add(new_user)
+        db.session.commit()
 
-    return {'status':True,'message':'Sign in succesfully'}
+        return True
+
+    except:
+
+        return False

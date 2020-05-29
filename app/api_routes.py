@@ -18,9 +18,9 @@ class Register(Resource):
         self.parser.add_argument('nome')
 
         new_user = self.parser.parse_args()
-        query = modules.register_user(new_user)
+        response = modules.register_user(new_user)
 
-        if query['status']:
+        if response:
             return {"message":"SUCCESS"}, 200
         else:
             return {"message":"FAILED"}, 400 # Bad Request
@@ -38,14 +38,14 @@ class Login(Resource):
         #   return {'status':'user is loged'}, 200
 
         query  = self.parser.parse_args()
-        status,user = modules.check_user(query)
+        response = modules.check_user(query)
 
-        if status['status']:
+        if not response:
             # login_user(user)
-            return {"message":"SUCCESS","user":user}, 200
+            return {"message":"FAILED"}, 404 # Not found
 
         else:
-            return {"message":"FAILED"}, 404 # Not found
+            return response
 
 
 # login_manager.login_view = Login
