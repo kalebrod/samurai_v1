@@ -1,6 +1,8 @@
 # Api do Habla Facil! 
 Aqui esta alocada a api do Habla Facil! plataforma de idiomas em espanhol.
 
+O repositorio da app esta em https://github.com/kalebrod/samurai_v2
+
 A api encontrase disponivel neste endereço https://samurai-v1.herokuapp.com 
 
 ## Como executar em local?
